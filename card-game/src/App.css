@@ -1,0 +1,92 @@
+.card {
+  /* Give dimensions to the card */
+  width: 120px;
+  height: 200px;
+  /* Add some color to distinguish from background */
+  background-color: ghostwhite;
+  /* Make the corners rounder */
+  border-radius: 8px;
+  /* Add colored border for more styling */
+  border: 4px solid brown;
+  /* Shadow for extra style */
+  box-shadow: 1px 1px 4px 1px gray;
+  /* If the image goes over the borders */
+  overflow: hidden;
+}
+.card.back{
+  background-color: blueviolet;
+}
+.stat-list-item {
+  /* Remove bullet points */
+  list-style: none;
+  /* Add space between the span elements */
+  display: flex;
+  justify-content: space-between;
+}
+.stat-list {
+  /* Remove default spacing around lists and add some padding to the sides */
+  margin: 0;
+  padding: 0 8px;
+}
+
+#center-area{
+  text-align: center;
+  align-self: center;
+  min-width: 10vw;
+}
+
+#game{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.card-list {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.card-list-item.player {
+  margin-left: calc(6vw - 150px);
+}
+
+.card-list.opponent {
+  /* Reverse direction */
+  direction: rtl;
+}
+
+.card-list-item.opponent {
+  margin-right: calc(6vw - 150px);
+  /* Direction must be reversed again to display text correctly */
+  direction: ltr;
+}
+.play-button {
+  width: 80px;
+  height: 40px;
+  align-self: center;
+  font-size: larger;
+  font-weight: bold;
+}
+
+
+.hand {
+  display: flex;
+  flex-direction: column;
+  min-width: 40vw;
+}
+.hand.pelaaja > h2 {
+  align-self: end;
+}
+
+.stat-list-item.selected {
+  outline: 1px solid black;
+  background-color: #f1efe2;
+}
+.card-list-item.player .stat-list-item:hover {
+  outline: 1px dashed black;
+  background-color: #fafafa;
+}
+
+.card-name{
+  display: flex;
+  justify-content: center;
+}
