@@ -4,7 +4,7 @@ export default{
         y:200,
         dx:5,
         dy:5,
-        rad:20,
+        rad:10,
         speed: 10,
     },
     brickObj:{
@@ -21,4 +21,10 @@ export default{
         score: 0,
         level: 1,
     },
+    paddleProps:{
+        height: 20,
+        width: 100,
+        x: 100,
+        color:"orange"
+    }
 }
