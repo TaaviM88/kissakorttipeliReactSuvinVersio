@@ -5,6 +5,8 @@ import data from "./data";
 import WallCollision from "./WallCollision";
 import Paddle from "./Paddle";
 import Brick from "./Brick";
+import BrickCollision from "./BrickCollision";
+import PaddleHit from "./PaddleHit";
 //kun aletaan tekemään tiiliä
 let bricks = [];
 //Muista poistaa tämä myös
@@ -19,10 +21,11 @@ export default function Breakout(){
     useEffect(()=>{
         const render = () =>{
             const canvas = canvasRef.current;
-
-            
             const ctx = canvas.getContext('2d');
-           
+            
+            //for paddle hit detection
+            paddleProps.y = canvas.height - 30;
+
             //Assign Bricks: luo brick.jsx
             let newBrickSet =  Brick(2,bricks,canvas,brickObj);
             if(newBrickSet && newBrickSet.length >0){
@@ -66,9 +69,29 @@ export default function Breakout(){
             //     ballObj.dx *= -1;
             // }
 
+            let brickCollision;
+            for (let i = 0; i < bricks.length; i++) {
+                brickCollision = BrickCollision(ballObj, bricks[i]);
+        
+                if (brickCollision.hit && !bricks[i].broke) {
+                  // console.log(brickCollision);
+                  if (brickCollision.axis === "X") {
+                    ballObj.dx *= -1;
+                    bricks[i].broke = true;
+                  } else if (brickCollision.axis === "Y") {
+                    ballObj.dy *= -1;
+                    bricks[i].broke = true;
+                  }
+                  //player.score += 10;
+                }
+              }
+            
             //kun pallon osuminen seiniin tehty. Ala tekemään mailaa(paddle komponenttia)
 
             Paddle(ctx, canvas, paddleProps);
+
+            PaddleHit(ballObj, paddleProps);
+
             requestAnimationFrame(render)
         }
         render();

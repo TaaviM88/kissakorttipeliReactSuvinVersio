@@ -14,9 +14,9 @@ class Ball{
     draw(ctx){
         ctx.beginPath();
         ctx.fillStyle ="red";
-        ctx.arc(this.x, this.y,this.rad,0,2 * Math.PI);
-        ctx.strokestyle = "black";
-        ctx.strokeWidth = 4;
+        ctx.arc(this.x, this.y,this.rad,0, 2 * Math.PI);
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
         ctx.fill();
         ctx.stroke();
     }

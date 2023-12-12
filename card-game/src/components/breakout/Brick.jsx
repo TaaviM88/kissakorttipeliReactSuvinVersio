@@ -1,5 +1,5 @@
 export default function Brick(level, bricks, canvas, brick){
-    brick.width = canvas.width /5;
+    brick.width = canvas.width /5 -1;
     let newBricks = [];
     if(!bricks){
         return [];
